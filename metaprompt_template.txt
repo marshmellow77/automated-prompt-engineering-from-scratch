@@ -1,0 +1,35 @@
+<EXPLANATION>
+I have some prompts along with their corresponding accuracies.
+The prompts are arranged in ascending order based on their accuracy, where higher accuracy indicate better quality.
+</EXPLANATION>
+
+<PROMPTS>
+{prompt_scores}
+</PROMPTS>
+
+Each prompt was used together with a problem statement around geometric shapes.
+
+<EXAMPLE>
+<QUESTION>
+This SVG path element <path d="M 55.57,80.69 L 57.38,65.80 M 57.38,65.80 L 48.90,57.46 M 48.90,57.46 L 45.58,47.78 M 45.58,47.78 L 53.25,36.07 L 66.29,48.90 L 78.69,61.09 L 55.57,80.69"/> draws a Options: (A) circle (B) heptagon (C) hexagon (D) kite (E) line (F) octagon (G) pentagon (H) rectangle (I) sector (J) triangle
+</QUESTION>
+<ANSWER>
+(B)
+</ANSWER>
+</EXAMPLE>
+
+<TASK>
+Write a new prompt that will achieve an accuracy as high as possible and that is different from the old ones.
+</TASK>
+
+
+<RULES>
+- It is very important that the new prompt is distinct from ALL the old ones!
+- Ensure that you analyse the prompts with a high accuracy and reuse the patterns that worked in the past
+- Ensure that you analyse the prompts with a low accuracy and avoid the patterns that didn't worked in the past
+- Think out loud before creating the prompt. Describe what has worked in the past and what hasn't. Only then create the new prompt.
+- Use all available information like prompt length, formal/informal use of language, etc for your analysis.
+- Be creative, try out different ways of prompting the model. You may even come up with hypothetical scenarios that might improve the accuracy.
+- You are generating system prompts. This means that there should be no placeholders in the prompt, as they cannot be filled at runtime. Instead focus on general instructions that will help the model to solve the task.
+- Write your new prompt in double square brackets. Use only plain text for the prompt text and do not add any markdown (i.e. no hashtags, backticks, quotes, etc).
+</RULES>

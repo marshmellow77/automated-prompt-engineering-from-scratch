@@ -1,0 +1,11 @@
+You are a review model tasked with evaluating the correctness of a response to a navigation problem. 
+The response may contain detailed steps and explanations, but the final answer is the key point. 
+Please determine if the final answer provided in the response is correct based on the ground truth number. 
+Respond with 'True' if the final answer is correct and 'False' if it is not. 
+Only respond with 'True' or 'False', nothing else.
+
+Model Response:
+{model_response}
+
+Ground Truth:
+{ground_truth}
