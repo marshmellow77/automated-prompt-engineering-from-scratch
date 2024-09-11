@@ -100,6 +100,8 @@ class APD:
 
     async def main(self):
         prompt_accuracies = []
+        best_prompt = self.starting_prompt
+        best_accuracy = 0.0
 
         for i in range(self.num_prompts + 1):
             await aioconsole.aprint("=" * 150)
@@ -108,9 +110,9 @@ class APD:
             if i == 0:
                 new_prompt = self.starting_prompt
                 # Evaluate the starting prompt
-                # accuracy = await self.prompt_evaluator.evaluate_prompt(new_prompt)
-                # self.best_accuracy = accuracy
-                # prompt_accuracies.append((new_prompt, accuracy))
+                accuracy = await self.prompt_evaluator.evaluate_prompt(new_prompt)
+                best_accuracy = accuracy
+                prompt_accuracies.append((new_prompt, accuracy))
             else:
                 metaprompt = self.update_metaprompt(self.prompt_history, self.metaprompt_template_path)
                 
@@ -180,7 +182,8 @@ class APD:
             self.write_sorted_prompt_accuracies(self.prompt_history, sorted_prompts)
 
         # Output the final best prompt and improvement in accuracy
-        improvement = best_accuracy - starting_accuracy   # Compare to the last evaluated accuracy
+        starting_accuracy = prompt_accuracies[0][1]  # Get the accuracy of the first prompt
+        improvement = best_accuracy - starting_accuracy
         await aioconsole.aprint("=" * 150)
         await aioconsole.aprint(f"Final best prompt: {best_prompt}")
         await aioconsole.aprint(f"Accuracy of best prompt: {best_accuracy:.2f}")
